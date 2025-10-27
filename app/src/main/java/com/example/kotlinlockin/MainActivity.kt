@@ -33,10 +33,8 @@ class MainActivity : ComponentActivity() {
                         TopAppBarComposable()
                         KotlinLayOutScreen()
                     }
-
                 }
             }
         }
     }
 }
-
