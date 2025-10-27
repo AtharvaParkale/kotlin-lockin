@@ -26,10 +26,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.kotlinlockin.ui.theme.KotlinLockInTheme
 
 class MainActivity : ComponentActivity() {
@@ -38,15 +37,25 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             KotlinLockInTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                Scaffold(
+                    modifier = Modifier.fillMaxSize(),
+                    containerColor = Color.White,
+                ) { innerPadding ->
                     Column(
                         modifier = Modifier.verticalScroll(rememberScrollState()),
-                        verticalArrangement = Arrangement.spacedBy(space = 15.dp),
-                        horizontalAlignment = Alignment.CenterHorizontally
+                        horizontalAlignment = Alignment.Start
                     ) {
                         TopAppBarComposable()
-                        RowTexts()
-                        ComposableLayouts()
+                        Column(
+                            modifier = Modifier.padding(
+                                horizontal = 15.dp,
+                                vertical = 18.dp
+                            ),
+                            verticalArrangement = Arrangement.spacedBy(space = 20.dp),
+                        ) {
+                            RowTexts()
+                            ComposableLayouts()
+                        }
                     }
 
                 }
@@ -58,77 +67,97 @@ class MainActivity : ComponentActivity() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TopAppBarComposable() {
-    TopAppBar(title = {
-        Text(text = "Compose practice")
-    }, actions = {
-        IconButton(onClick = {}) {
-            Icon(Icons.Default.Menu, contentDescription = "Menu")
-        }
-    })
+    TopAppBar(
+        title = {
+            Text(text = "Compose practice")
+        },
+        actions = {
+            IconButton(onClick = {}) {
+                Icon(Icons.Default.Menu, contentDescription = "Menu")
+            }
+        },
+    )
 }
 
 
 @Composable
 fun RowTexts() {
-    Row {
-        Text(
-            text = "Text1",
-            modifier = Modifier.background(Color.Red),
-            fontWeight = FontWeight(weight = 500)
-        )
-        Text(
-            text = "Text2",
-            modifier = Modifier.background(Color.Blue),
-            fontWeight = FontWeight(weight = 500)
-        )
-        Text(
-            text = "Text3",
-            modifier = Modifier.background(Color.Yellow),
-            fontWeight = FontWeight(weight = 500)
-        )
+    Column {
+        Heading("Rows")
+        Box(modifier = Modifier.size(10.dp))
+        Row {
+            Text(
+                text = "Text1",
+                modifier = Modifier.background(Color.Red),
+                fontWeight = FontWeight(weight = 500)
+            )
+            Text(
+                text = "Text2",
+                modifier = Modifier.background(Color.Blue),
+                fontWeight = FontWeight(weight = 500)
+            )
+            Text(
+                text = "Text3",
+                modifier = Modifier.background(Color.Yellow),
+                fontWeight = FontWeight(weight = 500)
+            )
+        }
     }
 }
 
 @Composable
 fun ComposableLayouts() {
-    Box(
-        Modifier
-            .background(
-                Color.Black
+    Column {
+        Heading("Box")
+        Box(modifier = Modifier.size(10.dp))
+        Box(
+            Modifier
+                .background(
+                    Color.Gray
+                )
+                .padding(all = 10.dp)
+                .size(250.dp)
+        ) {
+            Text(
+                "Center",
+                Modifier.align(Alignment.Center),
+                fontWeight = FontWeight(weight = 500),
+                color = Color.White
             )
-            .padding(all = 10.dp)
-            .size(250.dp)
-    ) {
-        Text(
-            "Center",
-            Modifier.align(Alignment.Center),
-            fontWeight = FontWeight(weight = 500),
-            color = Color.White
-        )
-        Text(
-            "Top Start",
-            Modifier.align(Alignment.TopStart),
-            fontWeight = FontWeight(weight = 500),
-            color = Color.White
-        )
-        Text(
-            "Top End",
-            Modifier.align(Alignment.TopEnd),
-            fontWeight = FontWeight(weight = 500),
-            color = Color.White
-        )
-        Text(
-            "Bottom Start",
-            Modifier.align(Alignment.BottomStart),
-            fontWeight = FontWeight(weight = 500),
-            color = Color.White
-        )
-        Text(
-            "Bottom End",
-            Modifier.align(Alignment.BottomEnd),
-            fontWeight = FontWeight(weight = 500),
-            color = Color.White
-        )
+            Text(
+                "Top Start",
+                Modifier.align(Alignment.TopStart),
+                fontWeight = FontWeight(weight = 500),
+                color = Color.White
+            )
+            Text(
+                "Top End",
+                Modifier.align(Alignment.TopEnd),
+                fontWeight = FontWeight(weight = 500),
+                color = Color.White
+            )
+            Text(
+                "Bottom Start",
+                Modifier.align(Alignment.BottomStart),
+                fontWeight = FontWeight(weight = 500),
+                color = Color.White
+            )
+            Text(
+                "Bottom End",
+                Modifier.align(Alignment.BottomEnd),
+                fontWeight = FontWeight(weight = 500),
+                color = Color.White
+            )
+        }
     }
+}
+
+@Composable
+fun Heading(title: String) {
+    Text(
+        text = "=> $title",
+        fontWeight = FontWeight(weight = 600),
+        fontSize = 20.sp
+    )
 }
 
