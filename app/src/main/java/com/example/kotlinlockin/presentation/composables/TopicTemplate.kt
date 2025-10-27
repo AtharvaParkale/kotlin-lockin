@@ -6,7 +6,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun TopicTemplate(topicTitle: String,  content: @Composable () -> Unit) {
+fun TopicTemplate(topicTitle: String, content: @Composable () -> Unit) {
     Column {
         TitleComposable(topicTitle)
         Box(modifier = Modifier.size(10.dp))
