@@ -1,6 +1,5 @@
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Text
@@ -13,9 +12,9 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun BoxComposable() {
-    Column {
-        TitleComposable("Box")
-        Box(modifier = Modifier.size(10.dp))
+    TopicTemplate(
+        "Box"
+    ) {
         Box(
             Modifier
                 .background(

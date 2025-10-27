@@ -4,10 +4,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun Heading(title: String) {
+fun TitleComposable(title: String) {
     Text(
-        text = "=> $title",
+        text = title,
         fontWeight = FontWeight(weight = 600),
-        fontSize = 20.sp
+        fontSize = 18.sp
     )
 }
