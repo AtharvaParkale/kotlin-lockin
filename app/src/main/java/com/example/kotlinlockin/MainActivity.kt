@@ -13,7 +13,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import com.example.kotlinlockin.presentation.screens.KotlinLayOutScreen
+import com.example.kotlinlockin.navigation.NavigationStack
 import com.example.kotlinlockin.ui.theme.KotlinLockInTheme
 
 class MainActivity : ComponentActivity() {
@@ -31,7 +31,8 @@ class MainActivity : ComponentActivity() {
                         horizontalAlignment = Alignment.Start
                     ) {
                         TopAppBarComposable()
-                        KotlinLayOutScreen()
+                        NavigationStack()
+//                        KotlinLayOutScreen()
                     }
                 }
             }
