@@ -17,7 +17,8 @@ val itemList = List(100) { index -> "Item ${index + 1}" }
 fun LazyRowComposable() {
     val screenHeight = LocalConfiguration.current.screenHeightDp.dp
     TopicTemplate(
-        "LazyColumn"
+        "LazyColumn",
+        description="Box(modifier=Modifier.fillMaxWidth()){LazyRow{items(itemList){item->Text(item,modifier=Modifier.padding(horizontal=5.dp))}}}"
     ) {
         Box(
             modifier = Modifier

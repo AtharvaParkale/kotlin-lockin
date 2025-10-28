@@ -13,7 +13,8 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun BoxComposable() {
     TopicTemplate(
-        "Box"
+        "Box",
+        description = "Box(Modifier.background(Color.Gray).padding(all=10.dp).size(250.dp)){Text(\\\"Center\\\",Modifier.align(Alignment.Center),fontWeight=FontWeight(weight=500),color=Color.White)Text(\\\"Top Start\\\",Modifier.align(Alignment.TopStart),fontWeight=FontWeight(weight=500),color=Color.White)Text(\\\"Top End\\\",Modifier.align(Alignment.TopEnd),fontWeight=FontWeight(weight=500),color=Color.White)Text(\\\"Bottom Start\\\",Modifier.align(Alignment.BottomStart),fontWeight=FontWeight(weight=500),color=Color.White)Text(\\\"Bottom End\\\",Modifier.align(Alignment.BottomEnd),fontWeight=FontWeight(weight=500),color=Color.White)}"
     ) {
         Box(
             Modifier
