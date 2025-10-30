@@ -29,6 +29,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.kotlinlockin.navigation.navigation_drawer.NavigationItems
+import com.example.kotlinlockin.presentation.screens.ConstrainedLayoutComposable
 import com.example.kotlinlockin.presentation.screens.KotlinLayOutScreen
 import com.example.kotlinlockin.presentation.screens.ModifiersTutorial
 import kotlinx.coroutines.launch
@@ -140,6 +141,8 @@ fun NavigationDrawer() {
                     2 -> KotlinLayOutScreen()
 
                     3 -> ModifiersTutorial()
+
+                    5 -> ConstrainedLayoutComposable()
                 }
             }
         }
