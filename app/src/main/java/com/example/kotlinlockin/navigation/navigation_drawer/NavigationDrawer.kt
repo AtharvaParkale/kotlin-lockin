@@ -30,13 +30,23 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.kotlinlockin.navigation.navigation_drawer.NavigationItems
 import com.example.kotlinlockin.presentation.screens.KotlinLayOutScreen
-import com.example.kotlinlockin.presentation.screens.NavigationScreenTwo
+import com.example.kotlinlockin.presentation.screens.ModifiersTutorial
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun NavigationDrawer() {
     val items = listOf(
+        NavigationItems(
+            title = "Important Keywords",
+            selectedIcon = Icons.Filled.KeyboardArrowRight,
+            unselectedIcon = Icons.Filled.KeyboardArrowRight
+        ),
+        NavigationItems(
+            title = "Compose important questions",
+            selectedIcon = Icons.Filled.KeyboardArrowRight,
+            unselectedIcon = Icons.Filled.KeyboardArrowRight
+        ),
         NavigationItems(
             title = "Layouts",
             selectedIcon = Icons.Filled.KeyboardArrowRight,
@@ -48,12 +58,32 @@ fun NavigationDrawer() {
             unselectedIcon = Icons.Filled.KeyboardArrowRight
         ),
         NavigationItems(
-            title = "Important Keywords",
+            title = "Constrained Layout",
             selectedIcon = Icons.Filled.KeyboardArrowRight,
             unselectedIcon = Icons.Filled.KeyboardArrowRight
         ),
         NavigationItems(
-            title = "Compose important questions",
+            title = "Intrinsic measurements",
+            selectedIcon = Icons.Filled.KeyboardArrowRight,
+            unselectedIcon = Icons.Filled.KeyboardArrowRight
+        ),
+        NavigationItems(
+            title = "Recomposition",
+            selectedIcon = Icons.Filled.KeyboardArrowRight,
+            unselectedIcon = Icons.Filled.KeyboardArrowRight
+        ),
+        NavigationItems(
+            title = "UI state with remember and mutableStateOf",
+            selectedIcon = Icons.Filled.KeyboardArrowRight,
+            unselectedIcon = Icons.Filled.KeyboardArrowRight
+        ),
+        NavigationItems(
+            title = "Remember savable for persistent state",
+            selectedIcon = Icons.Filled.KeyboardArrowRight,
+            unselectedIcon = Icons.Filled.KeyboardArrowRight
+        ),
+        NavigationItems(
+            title = "State hoisting pattern",
             selectedIcon = Icons.Filled.KeyboardArrowRight,
             unselectedIcon = Icons.Filled.KeyboardArrowRight
         ),
@@ -107,13 +137,11 @@ fun NavigationDrawer() {
                 horizontalAlignment = Alignment.Start
             ) {
                 when (selectedItemIndex) {
-                    0 -> KotlinLayOutScreen()
-                    1 -> NavigationScreenTwo(
-                        text = null
-                    )
+                    2 -> KotlinLayOutScreen()
+
+                    3 -> ModifiersTutorial()
                 }
             }
-
         }
     }
 }

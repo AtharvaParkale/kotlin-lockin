@@ -21,7 +21,6 @@ fun LazyColumnComposable() {
     val screenHeight = LocalConfiguration.current.screenHeightDp.dp
     TopicTemplate(
         "LazyColumn",
-        description = "Box(modifier=Modifier.fillMaxWidth().height(height=screenHeight/3)){LazyColumn{items(itemList){item->Text(item,modifier=Modifier.padding(vertical=5.dp))}}}"
     ) {
         Box(
             modifier = Modifier

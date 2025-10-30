@@ -11,7 +11,6 @@ import androidx.compose.ui.text.font.FontWeight
 fun RowComposable() {
     TopicTemplate(
         "Rows",
-        description = "Column{Row{Text(text=\\\"Text1\\\",modifier=Modifier.background(Color.Red),fontWeight=FontWeight(weight=500))Text(text=\\\"Text2\\\",modifier=Modifier.background(Color.Blue),fontWeight=FontWeight(weight=500))Text(text=\\\"Text3\\\",modifier=Modifier.background(Color.Yellow),fontWeight=FontWeight(weight=500))}}"
     ) {
         Column {
             Row {
