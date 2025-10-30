@@ -29,6 +29,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.kotlinlockin.navigation.navigation_drawer.NavigationItems
+import com.example.kotlinlockin.presentation.screens.ComposeMustKnow
 import com.example.kotlinlockin.presentation.screens.ConstrainedLayoutComposable
 import com.example.kotlinlockin.presentation.screens.KotlinLayOutScreen
 import com.example.kotlinlockin.presentation.screens.ModifiersTutorial
@@ -44,7 +45,7 @@ fun NavigationDrawer() {
             unselectedIcon = Icons.Filled.KeyboardArrowRight
         ),
         NavigationItems(
-            title = "Compose important questions",
+            title = "Compose must know",
             selectedIcon = Icons.Filled.KeyboardArrowRight,
             unselectedIcon = Icons.Filled.KeyboardArrowRight
         ),
@@ -138,11 +139,10 @@ fun NavigationDrawer() {
                 horizontalAlignment = Alignment.Start
             ) {
                 when (selectedItemIndex) {
+                    1 -> ComposeMustKnow()
                     2 -> KotlinLayOutScreen()
-
                     3 -> ModifiersTutorial()
-
-                    5 -> ConstrainedLayoutComposable()
+                    4 -> ConstrainedLayoutComposable()
                 }
             }
         }
