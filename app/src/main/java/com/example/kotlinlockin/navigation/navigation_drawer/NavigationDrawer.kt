@@ -121,7 +121,7 @@ fun NavigationDrawer() {
     ) {
         Scaffold(
             topBar = {
-                TopAppBar(title = { Text(text = "Compose") }, navigationIcon = {
+                TopAppBar(title = { Text(text = "Demo") }, navigationIcon = {
                     IconButton(onClick = {
                         scope.launch {
                             drawerState.apply { if (isClosed) open() else close() }

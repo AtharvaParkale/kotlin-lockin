@@ -6,9 +6,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -29,7 +28,10 @@ fun ConstrainedLayoutComposable() {
     val configuration = LocalConfiguration.current
     val screenHeight = configuration.screenHeightDp.dp
     Column(
-        modifier = Modifier.verticalScroll(rememberScrollState())
+        modifier = Modifier.padding(
+            horizontal = 15.dp,
+            vertical = 18.dp
+        ),
     ) {
         ConstrainedLayoutExampleOne(screenHeight / 2)
         ConstrainedLayoutExampleExampleTwo(screenHeight / 2)
