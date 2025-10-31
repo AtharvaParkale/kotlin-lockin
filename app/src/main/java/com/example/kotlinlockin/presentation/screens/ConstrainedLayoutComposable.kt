@@ -29,8 +29,7 @@ fun ConstrainedLayoutComposable() {
     val screenHeight = configuration.screenHeightDp.dp
     Column(
         modifier = Modifier.padding(
-            horizontal = 15.dp,
-            vertical = 18.dp
+            horizontal = 15.dp, vertical = 18.dp
         ),
     ) {
         ConstrainedLayoutExampleOne(screenHeight / 2)
@@ -44,21 +43,21 @@ private fun ConstrainedLayoutExampleOne(screenHeight: Dp) {
     Surface(
         modifier = Modifier
             .height(height = screenHeight)
-            .fillMaxWidth(),
-        color = Color(0xFFB3E5FC)
+            .fillMaxWidth(), color = Color(0xFFB3E5FC)
     ) {
         ConstraintLayout(
-            modifier = Modifier
-                .fillMaxSize()
+            modifier = Modifier.fillMaxSize()
         ) {
             val (title, button, description) = createRefs()
 
             Text(
-                text = "Welcome Demo", modifier = Modifier.constrainAs(title) {
+                text = "Welcome Demo",
+                modifier = Modifier.constrainAs(title) {
                     top.linkTo(parent.top, margin = 32.dp)
                     start.linkTo(parent.start)
                     end.linkTo(parent.end)
-                })
+                },
+            )
 
             Button(onClick = {}, modifier = Modifier.constrainAs(button) {
                 top.linkTo(title.bottom, margin = 16.dp)
@@ -68,16 +67,12 @@ private fun ConstrainedLayoutExampleOne(screenHeight: Dp) {
                 Text("Get Started")
             }
             Text(
-                text = "\t•\tConstraintLayout → The parent layout controlling positioning.\n" +
-                        "\t•\tcreateRefs() → Creates references for title and button.\n" +
-                        "\t•\tText → Positioned at the top center of the screen using top.linkTo(parent.top) and centering with start + end.\n" +
-                        "\t•\tButton → Positioned below the text using top.linkTo(title.bottom) so it keeps a fixed vertical distance.\n" +
-                        "✅ Result → Text appears at the top; button neatly placed below it and both are centered horizontally.",
+                text = "\t•\tConstraintLayout → The parent layout controlling positioning.\n" + "\t•\tcreateRefs() → Creates references for title and button.\n" + "\t•\tText → Positioned at the top center of the screen using top.linkTo(parent.top) and centering with start + end.\n" + "\t•\tButton → Positioned below the text using top.linkTo(title.bottom) so it keeps a fixed vertical distance.\n" + "✅ Result → Text appears at the top; button neatly placed below it and both are centered horizontally.",
                 modifier = Modifier.constrainAs(ref = description) {
                     top.linkTo(anchor = button.bottom, margin = 16.dp)
                     start.linkTo(parent.start)
                     end.linkTo(parent.end)
-                }
+                },
             )
 
         }
@@ -89,8 +84,7 @@ fun ConstrainedLayoutExampleExampleTwo(screenHeight: Dp) {
     Surface(
         modifier = Modifier
             .height(height = screenHeight)
-            .fillMaxWidth(),
-        color = Color(0xFFFFF9C4)
+            .fillMaxWidth(), color = Color(0xFFFFF9C4)
     ) {
         ConstraintLayout(modifier = Modifier.fillMaxSize()) {
             val (image, title, subtitle, description) = createRefs()
@@ -104,14 +98,17 @@ fun ConstrainedLayoutExampleExampleTwo(screenHeight: Dp) {
                         top.linkTo(parent.top, margin = 40.dp)
                         start.linkTo(parent.start)
                         end.linkTo(parent.end)
-                    })
+                    },
+            )
 
             Text(
-                text = "Atharva Parkale", modifier = Modifier.constrainAs(title) {
+                text = "Atharva Parkale",
+                modifier = Modifier.constrainAs(title) {
                     top.linkTo(image.bottom, margin = 1.dp)
                     start.linkTo(parent.start)
                     end.linkTo(parent.end)
-                })
+                },
+            )
 
             Text(
                 text = "Flutter & Kotlin Developer",
@@ -119,18 +116,17 @@ fun ConstrainedLayoutExampleExampleTwo(screenHeight: Dp) {
                     top.linkTo(title.bottom, margin = 8.dp)
                     start.linkTo(title.start)
                     end.linkTo(title.end)
-                })
+                },
+            )
 
             Text(
-                text = "\t•\tImage → Centered horizontally and placed at the top with a margin.\n" +
-                        "\t•\tTitle Text → Positioned below the image.\n" +
-                        "\t•\tSubtitle Text → Placed below the title and aligned with it horizontally.\n" +
-                        "✅ Result → A vertically stacked layout (image → title → subtitle) without using a Column, keeping flexibility for responsive alignment.",
+                text = "\t•\tImage → Centered horizontally and placed at the top with a margin.\n" + "\t•\tTitle Text → Positioned below the image.\n" + "\t•\tSubtitle Text → Placed below the title and aligned with it horizontally.\n" + "✅ Result → A vertically stacked layout (image → title → subtitle) without using a Column, keeping flexibility for responsive alignment.",
                 modifier = Modifier.constrainAs(description) {
                     top.linkTo(subtitle.bottom, margin = 8.dp)
                     start.linkTo(parent.start)
                     end.linkTo(parent.end)
-                })
+                },
+            )
         }
     }
 }
@@ -140,45 +136,36 @@ fun ConstrainedLayoutExampleExampleThree(screenHeight: Dp) {
     Surface(
         modifier = Modifier
             .height(height = screenHeight)
-            .fillMaxWidth(),
-        color = Color(0xFFD1C4E9)
+            .fillMaxWidth(), color = Color(0xFFD1C4E9)
     ) {
         ConstraintLayout(modifier = Modifier.fillMaxWidth()) {
             val (btn1, btn2, btn3, description) = createRefs()
 
             createHorizontalChain(btn1, btn2, btn3, chainStyle = ChainStyle.Spread)
 
-            Button(
-                onClick = {},
-                modifier = Modifier.constrainAs(btn1) {
-                    top.linkTo(parent.top, margin = 32.dp)
-                }
-            ) { Text("Left") }
+            Button(onClick = {}, modifier = Modifier.constrainAs(btn1) {
+                top.linkTo(parent.top, margin = 32.dp)
+            }) { Text("Left") }
 
-            Button(
-                onClick = {},
-                modifier = Modifier.constrainAs(btn2) {
-                    top.linkTo(btn1.top)
-                }
-            ) { Text("Center") }
+            Button(onClick = {}, modifier = Modifier.constrainAs(btn2) {
+                top.linkTo(btn1.top)
+            }) { Text("Center") }
 
             Button(
                 onClick = {},
                 modifier = Modifier.constrainAs(btn3) {
                     top.linkTo(btn1.top)
-                }
+                },
             ) { Text("Right") }
 
             Text(
-                text = "\t•\tImage → Centered horizontally and placed at the top with a margin.\n" +
-                        "\t•\tTitle Text → Positioned below the image.\n" +
-                        "\t•\tSubtitle Text → Placed below the title and aligned with it horizontally.\n" +
-                        "✅ Result → A vertically stacked layout (image → title → subtitle) without using a Column, keeping flexibility for responsive alignment.",
+                text = "\t•\tImage → Centered horizontally and placed at the top with a margin.\n" + "\t•\tTitle Text → Positioned below the image.\n" + "\t•\tSubtitle Text → Placed below the title and aligned with it horizontally.\n" + "✅ Result → A vertically stacked layout (image → title → subtitle) without using a Column, keeping flexibility for responsive alignment.",
                 modifier = Modifier.constrainAs(description) {
                     top.linkTo(btn2.bottom, margin = 8.dp)
                     start.linkTo(parent.start)
                     end.linkTo(parent.end)
-                })
+                },
+            )
         }
     }
 }

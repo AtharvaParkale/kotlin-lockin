@@ -31,6 +31,7 @@ import androidx.compose.ui.unit.dp
 import com.example.kotlinlockin.navigation.navigation_drawer.NavigationItems
 import com.example.kotlinlockin.presentation.screens.ComposeMustKnow
 import com.example.kotlinlockin.presentation.screens.ConstrainedLayoutComposable
+import com.example.kotlinlockin.presentation.screens.IntrinsicMeasurements
 import com.example.kotlinlockin.presentation.screens.KotlinLayOutScreen
 import com.example.kotlinlockin.presentation.screens.ModifiersTutorial
 import kotlinx.coroutines.launch
@@ -66,26 +67,6 @@ fun NavigationDrawer() {
         ),
         NavigationItems(
             title = "Intrinsic measurements",
-            selectedIcon = Icons.Filled.KeyboardArrowRight,
-            unselectedIcon = Icons.Filled.KeyboardArrowRight
-        ),
-        NavigationItems(
-            title = "Recomposition",
-            selectedIcon = Icons.Filled.KeyboardArrowRight,
-            unselectedIcon = Icons.Filled.KeyboardArrowRight
-        ),
-        NavigationItems(
-            title = "UI state with remember and mutableStateOf",
-            selectedIcon = Icons.Filled.KeyboardArrowRight,
-            unselectedIcon = Icons.Filled.KeyboardArrowRight
-        ),
-        NavigationItems(
-            title = "Remember savable for persistent state",
-            selectedIcon = Icons.Filled.KeyboardArrowRight,
-            unselectedIcon = Icons.Filled.KeyboardArrowRight
-        ),
-        NavigationItems(
-            title = "State hoisting pattern",
             selectedIcon = Icons.Filled.KeyboardArrowRight,
             unselectedIcon = Icons.Filled.KeyboardArrowRight
         ),
@@ -139,10 +120,12 @@ fun NavigationDrawer() {
                 horizontalAlignment = Alignment.Start
             ) {
                 when (selectedItemIndex) {
+                   0-> IntrinsicMeasurements()
                     1 -> ComposeMustKnow()
                     2 -> KotlinLayOutScreen()
                     3 -> ModifiersTutorial()
                     4 -> ConstrainedLayoutComposable()
+                    5 -> IntrinsicMeasurements()
                 }
             }
         }
