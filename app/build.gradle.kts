@@ -49,9 +49,9 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.androidx.material3)
-    implementation(libs.navigation.compose)
+    implementation(libs.navigation.compose) // Navigation
     implementation(libs.androidx.compose.foundation)
-    implementation(libs.constraintlayout.compose)
+    implementation(libs.constraintlayout.compose) // Constrained layout
     implementation(libs.androidx.compose.ui)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
@@ -60,5 +60,4 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-
 }

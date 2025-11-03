@@ -34,6 +34,7 @@ import com.example.kotlinlockin.presentation.screens.ConstrainedLayoutComposable
 import com.example.kotlinlockin.presentation.screens.IntrinsicMeasurements
 import com.example.kotlinlockin.presentation.screens.KotlinLayOutScreen
 import com.example.kotlinlockin.presentation.screens.ModifiersTutorial
+import com.example.kotlinlockin.presentation.screens.RecompositionTutorial
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -120,7 +121,7 @@ fun NavigationDrawer() {
                 horizontalAlignment = Alignment.Start
             ) {
                 when (selectedItemIndex) {
-                   0-> IntrinsicMeasurements()
+                    0 -> RecompositionTutorial()
                     1 -> ComposeMustKnow()
                     2 -> KotlinLayOutScreen()
                     3 -> ModifiersTutorial()

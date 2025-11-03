@@ -25,6 +25,8 @@ fun ComposeMustKnow() {
         Text("2. How to iterate a list in compose and render UI ?")
         Box(modifier = Modifier.height(8.dp))
         Text("2. How to iterate a list in compose and render UI ?")
+        Box(modifier = Modifier.height(8.dp))
+        Text("4. What are the different types of classes in kotlin??")
     }
 }
 
