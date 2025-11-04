@@ -21,6 +21,7 @@ fun TopicCardWithTitleCodeDescription(
     title: String,
     code: String,
     description: String,
+    composableWidget: @Composable () -> Unit,
 ) {
     Card(
         modifier = Modifier.fillMaxWidth()
@@ -40,14 +41,15 @@ fun TopicCardWithTitleCodeDescription(
                     .border(2.dp, color = Color.Gray)
             ) {
                 Text(
-                    modifier = Modifier.padding(all = 5.dp),
-                    text = code
+                    modifier = Modifier.padding(all = 5.dp), text = code
                 )
             }
             Box(modifier = Modifier.height(15.dp))
             Text(
                 text = description
             )
+            Box(modifier = Modifier.height(15.dp))
+            composableWidget()
         }
     }
 }

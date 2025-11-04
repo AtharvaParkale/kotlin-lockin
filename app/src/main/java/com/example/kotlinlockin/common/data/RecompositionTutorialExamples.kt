@@ -1,7 +1,7 @@
 package com.example.kotlinlockin.common.data
 
-class GetRecompositionTutorialData {
-}
+import com.example.kotlinlockin.common.data.entity.Example
+
 
 fun getRecompositionExample(): List<Example> = listOf(
     Example(
@@ -16,16 +16,12 @@ fun getRecompositionExample(): List<Example> = listOf(
                 "        Text(\"Increment\")   // Does NOT recompose when count changes\n" +
                 "    }\n" +
                 "}",
-        description = "What happens:\n" +
-                "\t•\tOnly the Text(“Count: count”) recomposes when count changes.\n" +
-                "\t•\tButton and inner Text(\"Increment\") do not recompose since they don’t read count.\n" +
-                "\n" +
-                "Reason: Compose tracks which functions read which states.",
+        description = "Only the Text that reads count is recomposed when count changes.",
+        composableWidget = {}
     ),
 
-
     Example(
-        title = "⚠\uFE0F Example 2: Everything re-runs if all code is in one block",
+        title = "⚠️ Example 2: Everything re-runs if all code is in one block",
         code = "@Composable\n" +
                 "fun CounterBad() {\n" +
                 "    var count by remember { mutableStateOf(0) }\n" +
@@ -37,11 +33,8 @@ fun getRecompositionExample(): List<Example> = listOf(
                 "        }\n" +
                 "    }\n" +
                 "}",
-        description = "What happens:\n" +
-                "\t•\tWhen count changes, the entire Column lambda recomposes (so Button & its child Text too).\n" +
-                "\t•\tSlightly more work than needed.\n" +
-                "\n" +
-                "Fix: Split into smaller composables \uD83D\uDC47"
+        description = "Whole Column recomposes because it directly reads count.",
+        composableWidget = {}
     ),
 
     Example(
@@ -63,30 +56,106 @@ fun getRecompositionExample(): List<Example> = listOf(
                 "\n" +
                 "@Composable\n" +
                 "fun IncrementButton(onClick: () -> Unit) {\n" +
-                "    Button(onClick) {\n" +
-                "        Text(\"Increment\")\n" +
-                "    }\n" +
+                "    Button(onClick) { Text(\"Increment\") }\n" +
                 "}",
-        description = "Now:\n" +
-                "\t•\tOnly CountText recomposes when count changes.\n" +
-                "\t•\tIncrementButton stays untouched — because its parameters didn’t change.\n" +
-                "\n" +
-                "✅ This is a good practice — isolate state reads in small composables."
+        description = "Only CountText recomposes when count changes.",
+        composableWidget = {}
     ),
+
     Example(
-        title = "⚠\uFE0F Example 4: Passing unstable lambdas causes recomposition",
+        title = "⚠️ Example 4: Passing unstable lambdas causes recomposition",
         code = "@Composable\n" +
                 "fun Parent() {\n" +
                 "    var text by remember { mutableStateOf(\"Hello\") }\n" +
-                "    Child(onClick = { println(text) }) // \uD83D\uDC48 new lambda every recomposition\n" +
+                "    Child(onClick = { println(text) }) // New lambda every recomposition\n" +
                 "}\n" +
                 "\n" +
                 "@Composable\n" +
                 "fun Child(onClick: () -> Unit) {\n" +
                 "    Button(onClick) { Text(\"Click\") }\n" +
                 "}",
-        description = "Problem:\n" +
-                "\t•\tChild recomposes every time text changes, even though it doesn’t read text.\n" +
-                "\t•\tBecause { println(text) } is a new lambda instance on each composition.\n"
+        description = "Child recomposes every time text changes because onClick lambda changes.\n\n✅ Fix: use remember { ... } to stabilize the lambda.",
+        composableWidget = {}
+    ),
+
+    Example(
+        title = "✅ Example 5: Stabilizing lambda with remember",
+        code = "@Composable\n" +
+                "fun ParentFixed() {\n" +
+                "    var text by remember { mutableStateOf(\"Hello\") }\n" +
+                "    val onClickRemembered = remember(text) { { println(text) } }\n" +
+                "    Child(onClickRemembered)\n" +
+                "}",
+        description = "Now the lambda is stable (only recreated when text changes).",
+        composableWidget = {}
+    ),
+
+    Example(
+        title = "⚡ Example 6: Remember avoids unnecessary recomposition work",
+        code = "@Composable\n" +
+                "fun HeavyCalculationExample() {\n" +
+                "    var input by remember { mutableStateOf(10) }\n" +
+                "    val result = remember(input) {\n" +
+                "        heavyCalculation(input)\n" +
+                "    }\n" +
+                "\n" +
+                "    Text(\"Result: result\")\n" +
+                "    Button(onClick = { input++ }) { Text(\"Recalculate\") }\n" +
+                "}\n" +
+                "\n" +
+                "fun heavyCalculation(x: Int): Int {\n" +
+                "    Thread.sleep(1000)\n" +
+                "    return x * x\n" +
+                "}",
+        description = "remember caches results. heavyCalculation runs only when input changes, not every recomposition.",
+        composableWidget = {}
+
+    ),
+
+    Example(
+        title = "✅ Example 7: derivedStateOf to avoid redundant recomposition",
+        code = "@Composable\n" +
+                "fun DerivedStateExample() {\n" +
+                "    var items by remember { mutableStateOf(listOf(1, 2, 3)) }\n" +
+                "    val total by remember {\n" +
+                "        derivedStateOf { items.sum() }\n" +
+                "    }\n" +
+                "\n" +
+                "    Text(\"Total: total\")\n" +
+                "    Button(onClick = { items = items + (items.size + 1) }) {\n" +
+                "        Text(\"Add Item\")\n" +
+                "    }\n" +
+                "}",
+        description = "derivedStateOf recalculates only when items actually change — efficient for derived values.",
+        composableWidget = {}
+    ),
+
+    Example(
+        title = "✅ Example 8: Keys control recomposition scope in LazyColumn",
+        code = "@Composable\n" +
+                "fun KeyExample() {\n" +
+                "    val items = listOf(\"A\", \"B\", \"C\")\n" +
+                "    LazyColumn {\n" +
+                "        items(items, key = { it }) { item ->\n" +
+                "            Text(\"Item: item\")\n" +
+                "        }\n" +
+                "    }\n" +
+                "}",
+        description = "Using key prevents Compose from recomposing all items when list order changes. Only affected item recomposes.",
+        composableWidget = {}
+    ),
+
+    Example(
+        title = "✅ Example 9: Side effects like LaunchedEffect do not cause recomposition",
+        code = "@Composable\n" +
+                "fun LaunchExample(input: String) {\n" +
+                "    LaunchedEffect(input) {\n" +
+                "        println(\"Launched with input\")\n" +
+                "    }\n" +
+                "\n" +
+                "    Text(\"Input: input\")\n" +
+                "}",
+        description = "LaunchedEffect runs on key change but does NOT trigger recomposition — it's a side effect, not UI logic.",
+        composableWidget = {}
     )
 )

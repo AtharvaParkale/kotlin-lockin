@@ -34,6 +34,7 @@ import com.example.kotlinlockin.presentation.screens.ConstrainedLayoutComposable
 import com.example.kotlinlockin.presentation.screens.IntrinsicMeasurements
 import com.example.kotlinlockin.presentation.screens.KotlinLayOutScreen
 import com.example.kotlinlockin.presentation.screens.ModifiersTutorial
+import com.example.kotlinlockin.presentation.screens.MutableStateTutorial
 import com.example.kotlinlockin.presentation.screens.RecompositionTutorial
 import kotlinx.coroutines.launch
 
@@ -68,6 +69,16 @@ fun NavigationDrawer() {
         ),
         NavigationItems(
             title = "Intrinsic measurements",
+            selectedIcon = Icons.Filled.KeyboardArrowRight,
+            unselectedIcon = Icons.Filled.KeyboardArrowRight
+        ),
+        NavigationItems(
+            title = "Recomposition",
+            selectedIcon = Icons.Filled.KeyboardArrowRight,
+            unselectedIcon = Icons.Filled.KeyboardArrowRight
+        ),
+        NavigationItems(
+            title = "Mutable state",
             selectedIcon = Icons.Filled.KeyboardArrowRight,
             unselectedIcon = Icons.Filled.KeyboardArrowRight
         ),
@@ -121,12 +132,14 @@ fun NavigationDrawer() {
                 horizontalAlignment = Alignment.Start
             ) {
                 when (selectedItemIndex) {
-                    0 -> RecompositionTutorial()
+                    0 -> MutableStateTutorial()
                     1 -> ComposeMustKnow()
                     2 -> KotlinLayOutScreen()
                     3 -> ModifiersTutorial()
                     4 -> ConstrainedLayoutComposable()
                     5 -> IntrinsicMeasurements()
+                    6 -> RecompositionTutorial()
+                    7 -> MutableStateTutorial()
                 }
             }
         }
