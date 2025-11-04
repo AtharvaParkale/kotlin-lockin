@@ -35,20 +35,25 @@ fun TopicCardWithTitleCodeDescription(
                 )
             )
             Box(modifier = Modifier.height(10.dp))
-            Box(
-                modifier = Modifier
-                    .padding(all = 5.dp)
-                    .border(2.dp, color = Color.Gray)
-            ) {
-                Text(
-                    modifier = Modifier.padding(all = 5.dp), text = code
-                )
+
+            if (!code.isEmpty()) {
+                Box(
+                    modifier = Modifier
+                        .padding(all = 5.dp)
+                        .border(2.dp, color = Color.Gray)
+                ) {
+                    Text(
+                        modifier = Modifier.padding(all = 5.dp), text = code
+                    )
+                }
             }
             Box(modifier = Modifier.height(15.dp))
-            Text(
-                text = description
-            )
-            Box(modifier = Modifier.height(15.dp))
+            if (!description.isEmpty()) {
+                Text(
+                    text = description
+                )
+                Box(modifier = Modifier.height(15.dp))
+            }
             composableWidget()
         }
     }

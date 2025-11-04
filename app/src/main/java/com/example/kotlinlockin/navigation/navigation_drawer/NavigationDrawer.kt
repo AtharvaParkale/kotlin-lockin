@@ -36,6 +36,7 @@ import com.example.kotlinlockin.presentation.screens.KotlinLayOutScreen
 import com.example.kotlinlockin.presentation.screens.ModifiersTutorial
 import com.example.kotlinlockin.presentation.screens.MutableStateTutorial
 import com.example.kotlinlockin.presentation.screens.RecompositionTutorial
+import com.example.kotlinlockin.presentation.screens.StateHoistingTutorial
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -79,6 +80,21 @@ fun NavigationDrawer() {
         ),
         NavigationItems(
             title = "Mutable state",
+            selectedIcon = Icons.Filled.KeyboardArrowRight,
+            unselectedIcon = Icons.Filled.KeyboardArrowRight
+        ),
+        NavigationItems(
+            title = "State Hoisting",
+            selectedIcon = Icons.Filled.KeyboardArrowRight,
+            unselectedIcon = Icons.Filled.KeyboardArrowRight
+        ),
+        NavigationItems(
+            title = "Compose ViewModel",
+            selectedIcon = Icons.Filled.KeyboardArrowRight,
+            unselectedIcon = Icons.Filled.KeyboardArrowRight
+        ),
+        NavigationItems(
+            title = "Observing Live data",
             selectedIcon = Icons.Filled.KeyboardArrowRight,
             unselectedIcon = Icons.Filled.KeyboardArrowRight
         ),
@@ -132,7 +148,7 @@ fun NavigationDrawer() {
                 horizontalAlignment = Alignment.Start
             ) {
                 when (selectedItemIndex) {
-                    0 -> MutableStateTutorial()
+                    0 -> StateHoistingTutorial()
                     1 -> ComposeMustKnow()
                     2 -> KotlinLayOutScreen()
                     3 -> ModifiersTutorial()

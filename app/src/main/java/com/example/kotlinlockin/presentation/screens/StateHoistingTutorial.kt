@@ -8,20 +8,18 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.kotlinlockin.common.composables.TopicCardWithTitleCodeDescription
-import com.example.kotlinlockin.common.data.getMutableStateExamples
+import com.example.kotlinlockin.common.data.getStateHoistingExamples
 
 @Composable
-fun MutableStateTutorial() {
-    val examples = remember { getMutableStateExamples() }
+fun StateHoistingTutorial() {
+    val examples = remember { getStateHoistingExamples() }
     Column(
         modifier = Modifier.padding(
             horizontal = 15.dp, vertical = 20.dp
         ),
         verticalArrangement = Arrangement.spacedBy(20.dp)
     ) {
-
         examples.forEach {
-            it
             TopicCardWithTitleCodeDescription(
                 title = it.title,
                 code = it.code,
