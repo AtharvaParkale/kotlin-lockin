@@ -1,5 +1,6 @@
 package com.example.kotlinlockin.common.data
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -53,15 +54,19 @@ fun getStylingTextExamples(): List<Example> = listOf(
         code = "Text(\n" + "    text = \"Material Headline\",\n" + "    style = MaterialTheme.typography.headlineMedium\n" + ")" + "\n====================================" + "Text(\n" + "    text = \"Custom Title\",\n" + "    style = MaterialTheme.typography.titleLarge.copy(\n" + "        color = Color.Red,\n" + "        fontWeight = FontWeight.Bold\n" + "    )\n" + ")",
         description = "Compose Material3 provides pre-defined text styles using the MaterialTheme.typography system." + "You can also override specific attributes:" + "Explanation:\n" + "\t•\tTypography provides a consistent text system for your entire app (title, headline, body, etc.).\n" + "\t•\tYou can customize color, weight, or size using .copy().",
         composableWidget = {
-            Text(
-                text = "Material Headline", style = MaterialTheme.typography.headlineMedium
-            )
-            Text(
-                text = "Custom Title", style = MaterialTheme.typography.titleLarge.copy(
-                    color = Color.Red, fontWeight = FontWeight.Bold
+            Column {
+                Text(
+                    text = "Material Headline", style = MaterialTheme.typography.headlineMedium
                 )
-            )
-        }),
+                Text(
+                    text = "Custom Title", style = MaterialTheme.typography.titleLarge.copy(
+                        color = Color.Red, fontWeight = FontWeight.Bold
+                    )
+                )
+            }
+
+        },
+    ),
 
     Example(
         title = "⚙\uFE0F 7. Example: Combining all text styles",
