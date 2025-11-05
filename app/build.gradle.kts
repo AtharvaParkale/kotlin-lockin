@@ -56,6 +56,7 @@ dependencies {
     // Retrofit
     implementation(libs.retrofit.compose)
     implementation(libs.retrofit.gson.convertor)
+    implementation(libs.androidx.compose.runtime.livedata)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

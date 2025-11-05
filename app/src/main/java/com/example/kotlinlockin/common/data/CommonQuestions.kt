@@ -18,6 +18,15 @@ fun getAllCommonQuestions(): List<String> {
         "What is private set keyword and why is it used in compose?",
         "Use of when keyword or switch in kotlin",
         "How to use remember block for initializing dependencies",
-        "How to throw error in kotlin ?"
+        "How to throw error in kotlin ?",
+        "What is 'observeState' keyword in Livedata?",
+        "What is activity and how do different activities interact",
+        "How is infinite scroll handled in compose?",
+        "What are kotlin flows?",
+        "What are coroutine in kotlin?",
+        "What is recycler view in kotlin jetpack compose?",
+        "Android architecture component",
+        "What do u mean by the term lifecycle/lifecycle aware in android?",
+        "What are activities/ fragments / services"
     )
 }

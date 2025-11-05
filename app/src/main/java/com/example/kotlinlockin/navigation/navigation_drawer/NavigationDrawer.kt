@@ -37,6 +37,8 @@ import com.example.kotlinlockin.presentation.screens.ModifiersTutorial
 import com.example.kotlinlockin.presentation.screens.MutableStateTutorial
 import com.example.kotlinlockin.presentation.screens.RecompositionTutorial
 import com.example.kotlinlockin.presentation.screens.StateHoistingTutorial
+import com.example.kotlinlockin.presentation.screens.live_data.TimerScreen
+import com.example.kotlinlockin.presentation.screens.live_data.TimerViewModel
 import com.example.kotlinlockin.presentation.screens.view_model.presentation.ui.PostScreenInitialization
 import kotlinx.coroutines.launch
 
@@ -149,7 +151,7 @@ fun NavigationDrawer() {
                 horizontalAlignment = Alignment.Start
             ) {
                 when (selectedItemIndex) {
-                    0 -> PostScreenInitialization()
+                    0 -> TimerScreen()
                     1 -> ComposeMustKnow()
                     2 -> KotlinLayOutScreen()
                     3 -> ModifiersTutorial()
@@ -159,6 +161,7 @@ fun NavigationDrawer() {
                     7 -> MutableStateTutorial()
                     8 -> StateHoistingTutorial()
                     9 -> PostScreenInitialization()
+                    10 -> TimerScreen()
                 }
             }
         }
