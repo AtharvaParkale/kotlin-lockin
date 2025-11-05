@@ -12,6 +12,7 @@ navigation = "2.9.5"
 foundation = "1.9.4"
 constraintlayout-compose = "1.1.1"
 ui = "1.9.4"
+retrofit-version = "2.9.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -31,8 +32,9 @@ androidx-material3 = { group = "androidx.compose.material3", name = "material3" 
 navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigation" }
 androidx-compose-foundation = { group = "androidx.compose.foundation", name = "foundation", version.ref = "foundation" }
 constraintlayout-compose = { module = "androidx.constraintlayout:constraintlayout-compose", version.ref = "constraintlayout-compose" }
-
 androidx-compose-ui = { group = "androidx.compose.ui", name = "ui", version.ref = "ui" }
+retrofit-compose = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit-version" }
+retrofit-gson-convertor = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit-version" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

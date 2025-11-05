@@ -37,6 +37,7 @@ import com.example.kotlinlockin.presentation.screens.ModifiersTutorial
 import com.example.kotlinlockin.presentation.screens.MutableStateTutorial
 import com.example.kotlinlockin.presentation.screens.RecompositionTutorial
 import com.example.kotlinlockin.presentation.screens.StateHoistingTutorial
+import com.example.kotlinlockin.presentation.screens.view_model.presentation.ui.PostScreenInitialization
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -148,7 +149,7 @@ fun NavigationDrawer() {
                 horizontalAlignment = Alignment.Start
             ) {
                 when (selectedItemIndex) {
-                    0 -> StateHoistingTutorial()
+                    0 -> PostScreenInitialization()
                     1 -> ComposeMustKnow()
                     2 -> KotlinLayOutScreen()
                     3 -> ModifiersTutorial()
@@ -156,6 +157,8 @@ fun NavigationDrawer() {
                     5 -> IntrinsicMeasurements()
                     6 -> RecompositionTutorial()
                     7 -> MutableStateTutorial()
+                    8 -> StateHoistingTutorial()
+                    9 -> PostScreenInitialization()
                 }
             }
         }

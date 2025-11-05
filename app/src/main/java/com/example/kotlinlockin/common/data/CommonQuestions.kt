@@ -10,6 +10,14 @@ fun getAllCommonQuestions(): List<String> {
         "What is remember keyword in compose?",
         "How to make an API call in compose ?",
         "How to implement timer in compose ?",
-        "How to Parse the json in compose ?"
+        "How to Parse the json in compose ?",
+        "What is interface, abstract keyword in kotlin ?",
+        "What is operator keyword in kotlin?",
+        "How to set up retrofit in kotlin ?",
+        "How to set up hilt in kotlin ?",
+        "What is private set keyword and why is it used in compose?",
+        "Use of when keyword or switch in kotlin",
+        "How to use remember block for initializing dependencies",
+        "How to throw error in kotlin ?"
     )
 }
