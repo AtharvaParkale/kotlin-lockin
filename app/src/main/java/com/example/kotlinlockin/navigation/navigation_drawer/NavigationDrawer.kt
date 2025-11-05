@@ -34,6 +34,12 @@ import com.example.kotlinlockin.presentation.screens.ConstrainedLayoutComposable
 import com.example.kotlinlockin.presentation.screens.IntrinsicMeasurements
 import com.example.kotlinlockin.presentation.screens.KotlinLayOutScreen
 import com.example.kotlinlockin.presentation.screens.ModifiersTutorial
+import com.example.kotlinlockin.presentation.screens.MutableStateTutorial
+import com.example.kotlinlockin.presentation.screens.RecompositionTutorial
+import com.example.kotlinlockin.presentation.screens.StateHoistingTutorial
+import com.example.kotlinlockin.presentation.screens.live_data.TimerScreen
+import com.example.kotlinlockin.presentation.screens.live_data.TimerViewModel
+import com.example.kotlinlockin.presentation.screens.view_model.presentation.ui.PostScreenInitialization
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -67,6 +73,31 @@ fun NavigationDrawer() {
         ),
         NavigationItems(
             title = "Intrinsic measurements",
+            selectedIcon = Icons.Filled.KeyboardArrowRight,
+            unselectedIcon = Icons.Filled.KeyboardArrowRight
+        ),
+        NavigationItems(
+            title = "Recomposition",
+            selectedIcon = Icons.Filled.KeyboardArrowRight,
+            unselectedIcon = Icons.Filled.KeyboardArrowRight
+        ),
+        NavigationItems(
+            title = "Mutable state",
+            selectedIcon = Icons.Filled.KeyboardArrowRight,
+            unselectedIcon = Icons.Filled.KeyboardArrowRight
+        ),
+        NavigationItems(
+            title = "State Hoisting",
+            selectedIcon = Icons.Filled.KeyboardArrowRight,
+            unselectedIcon = Icons.Filled.KeyboardArrowRight
+        ),
+        NavigationItems(
+            title = "Compose ViewModel",
+            selectedIcon = Icons.Filled.KeyboardArrowRight,
+            unselectedIcon = Icons.Filled.KeyboardArrowRight
+        ),
+        NavigationItems(
+            title = "Observing Live data",
             selectedIcon = Icons.Filled.KeyboardArrowRight,
             unselectedIcon = Icons.Filled.KeyboardArrowRight
         ),
@@ -120,12 +151,17 @@ fun NavigationDrawer() {
                 horizontalAlignment = Alignment.Start
             ) {
                 when (selectedItemIndex) {
-                   0-> IntrinsicMeasurements()
+                    0 -> TimerScreen()
                     1 -> ComposeMustKnow()
                     2 -> KotlinLayOutScreen()
                     3 -> ModifiersTutorial()
                     4 -> ConstrainedLayoutComposable()
                     5 -> IntrinsicMeasurements()
+                    6 -> RecompositionTutorial()
+                    7 -> MutableStateTutorial()
+                    8 -> StateHoistingTutorial()
+                    9 -> PostScreenInitialization()
+                    10 -> TimerScreen()
                 }
             }
         }

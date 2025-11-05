@@ -22,8 +22,7 @@ android {
         release {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
         }
     }
@@ -49,10 +48,16 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.androidx.material3)
-    implementation(libs.navigation.compose)
+    implementation(libs.navigation.compose) // Navigation
     implementation(libs.androidx.compose.foundation)
-    implementation(libs.constraintlayout.compose)
+    implementation(libs.constraintlayout.compose) // Constrained layout
     implementation(libs.androidx.compose.ui)
+
+    // Retrofit
+    implementation(libs.retrofit.compose)
+    implementation(libs.retrofit.gson.convertor)
+    implementation(libs.androidx.compose.runtime.livedata)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -60,5 +65,4 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-
 }
