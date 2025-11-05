@@ -72,24 +72,27 @@ fun TimerScreen(viewModel: TimerViewModel = viewModel()) {
                     "LiveData object sends updates to the activity or fragment only when it is in the active state (started or resumed). If the activity is not active, LiveData temporarily stops sending data. When the activity becomes active again, it resumes delivering updates.\n" +
                     "LiveData delivers data only when there is a change in the data and only to the active observers. Inactive observers do not receive updates until they become active again.",
         ) {
-            Text(
-                text = "Time left: $seconds",
-                style = MaterialTheme.typography.headlineLarge
-            )
+            Column {
+                Text(
+                    text = "Time left: $seconds",
+                    style = MaterialTheme.typography.headlineLarge
+                )
 
-            Spacer(modifier = Modifier.height(20.dp))
+                Spacer(modifier = Modifier.height(20.dp))
 
-            Row(
-                horizontalArrangement = Arrangement.spacedBy(12.dp)
-            ) {
-                Button(onClick = { viewModel.startTimer() }) {
-                    Text("Start")
-                }
+                Row(
+                    horizontalArrangement = Arrangement.spacedBy(12.dp)
+                ) {
+                    Button(onClick = { viewModel.startTimer() }) {
+                        Text("Start")
+                    }
 
-                Button(onClick = { viewModel.stopTimer() }) {
-                    Text("Stop")
+                    Button(onClick = { viewModel.stopTimer() }) {
+                        Text("Stop")
+                    }
                 }
             }
+
         }
 
     }

@@ -9,11 +9,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.kotlinlockin.common.composables.TopicCardWithTitleCodeDescription
-import com.example.kotlinlockin.common.data.getRecompositionExample
+import com.example.kotlinlockin.common.data.getCollectAsStateExamples
 
+@Preview(showBackground = true, showSystemUi = true)
 @Composable
-fun RecompositionTutorial() {
-    val examples = remember { getRecompositionExample() }
+fun CollectAsStateScreen() {
+    val examples = remember { getCollectAsStateExamples() }
     Column(
         modifier = Modifier.padding(
             horizontal = 15.dp, vertical = 20.dp
@@ -29,4 +30,3 @@ fun RecompositionTutorial() {
         }
     }
 }
-
