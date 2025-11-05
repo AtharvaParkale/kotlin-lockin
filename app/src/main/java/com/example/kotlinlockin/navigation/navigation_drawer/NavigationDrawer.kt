@@ -29,6 +29,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.kotlinlockin.navigation.navigation_drawer.NavigationItems
+import com.example.kotlinlockin.presentation.screens.CollectAsStateScreen
 import com.example.kotlinlockin.presentation.screens.ComposeMustKnow
 import com.example.kotlinlockin.presentation.screens.ConstrainedLayoutComposable
 import com.example.kotlinlockin.presentation.screens.IntrinsicMeasurements
@@ -101,6 +102,21 @@ fun NavigationDrawer() {
             selectedIcon = Icons.Filled.KeyboardArrowRight,
             unselectedIcon = Icons.Filled.KeyboardArrowRight
         ),
+        NavigationItems(
+            title = "Collect as state",
+            selectedIcon = Icons.Filled.KeyboardArrowRight,
+            unselectedIcon = Icons.Filled.KeyboardArrowRight
+        ),
+        NavigationItems(
+            title = "Styling text",
+            selectedIcon = Icons.Filled.KeyboardArrowRight,
+            unselectedIcon = Icons.Filled.KeyboardArrowRight
+        ),
+        NavigationItems(
+            title = "Buttons and clickable components",
+            selectedIcon = Icons.Filled.KeyboardArrowRight,
+            unselectedIcon = Icons.Filled.KeyboardArrowRight
+        ),
     )
 
     var selectedItemIndex by rememberSaveable { mutableStateOf(0) }
@@ -133,7 +149,7 @@ fun NavigationDrawer() {
     ) {
         Scaffold(
             topBar = {
-                TopAppBar(title = { Text(text = "Demo") }, navigationIcon = {
+                TopAppBar(title = { Text(text = "Compose") }, navigationIcon = {
                     IconButton(onClick = {
                         scope.launch {
                             drawerState.apply { if (isClosed) open() else close() }
@@ -162,6 +178,8 @@ fun NavigationDrawer() {
                     8 -> StateHoistingTutorial()
                     9 -> PostScreenInitialization()
                     10 -> TimerScreen()
+                    11 -> CollectAsStateScreen()
+
                 }
             }
         }
