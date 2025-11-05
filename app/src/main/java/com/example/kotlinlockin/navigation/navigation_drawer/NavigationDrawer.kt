@@ -38,6 +38,7 @@ import com.example.kotlinlockin.presentation.screens.ModifiersTutorial
 import com.example.kotlinlockin.presentation.screens.MutableStateTutorial
 import com.example.kotlinlockin.presentation.screens.RecompositionTutorial
 import com.example.kotlinlockin.presentation.screens.StateHoistingTutorial
+import com.example.kotlinlockin.presentation.screens.TextStyleTutorial
 import com.example.kotlinlockin.presentation.screens.live_data.TimerScreen
 import com.example.kotlinlockin.presentation.screens.live_data.TimerViewModel
 import com.example.kotlinlockin.presentation.screens.view_model.presentation.ui.PostScreenInitialization
@@ -167,7 +168,10 @@ fun NavigationDrawer() {
                 horizontalAlignment = Alignment.Start
             ) {
                 when (selectedItemIndex) {
-                    0 -> TimerScreen()
+                    0 -> {
+                        Text("Must know keywords in kotlin")
+                    }
+
                     1 -> ComposeMustKnow()
                     2 -> KotlinLayOutScreen()
                     3 -> ModifiersTutorial()
@@ -179,6 +183,10 @@ fun NavigationDrawer() {
                     9 -> PostScreenInitialization()
                     10 -> TimerScreen()
                     11 -> CollectAsStateScreen()
+                    12 -> TextStyleTutorial()
+                    13 -> {
+                        Text("Clickable buttons")
+                    }
 
                 }
             }
