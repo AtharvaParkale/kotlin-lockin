@@ -13,7 +13,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
 
         setContent {
-            KotlinLockInTheme {
+            KotlinLockInTheme(darkTheme = false) {
                 NavigationDrawer()
             }
         }
