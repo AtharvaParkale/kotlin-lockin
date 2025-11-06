@@ -98,6 +98,19 @@ fun getAllCommonQuestions(): List<CommonQuestionsModel> {
             youtubeVideoUrl = "https://www.youtube.com/watch?v=QCLhQH0Rz2E",
             youtubeThumbnailUrl = "https://img.youtube.com/vi/QCLhQH0Rz2E/hqdefault.jpg",
             articleUrl = "https://developer.android.com/topic/performance/background-optimization"
+        ),
+        CommonQuestionsModel(
+            title = "What are the different types of onclick intents in android",
+            youtubeVideoUrl = "",
+            youtubeThumbnailUrl = "",
+            articleUrl = ""
+        ),
+        CommonQuestionsModel(
+            title = "How does dark theme and light theme work in compose",
+            youtubeVideoUrl = "",
+            youtubeThumbnailUrl = "",
+            articleUrl = ""
         )
+
     )
 }
