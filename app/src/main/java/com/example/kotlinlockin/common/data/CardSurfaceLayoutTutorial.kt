@@ -208,7 +208,9 @@ fun getCardSurfaceLayoutExamples(): List<Example> = listOf(
 
         LazyColumn(
             verticalArrangement = Arrangement.spacedBy(8.dp),
-            modifier = Modifier.padding(10.dp).height(height = 400.dp)
+            modifier = Modifier
+                .padding(10.dp)
+                .height(height = 400.dp)
         ) {
             items(items) { item ->
                 Card(
