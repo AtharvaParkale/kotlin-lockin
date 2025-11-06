@@ -1,3 +1,4 @@
+import android.content.Context
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -32,6 +33,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.example.kotlinlockin.common.composables.TutorialScreen
 import com.example.kotlinlockin.common.data.getButtonClicksExamples
@@ -39,6 +41,7 @@ import com.example.kotlinlockin.common.data.getCardSurfaceLayoutExamples
 import com.example.kotlinlockin.common.data.getCollectAsStateExamples
 import com.example.kotlinlockin.common.data.getIconsAndImagesExamples
 import com.example.kotlinlockin.common.data.getMutableStateExamples
+import com.example.kotlinlockin.common.data.getOnClickIntentExamples
 import com.example.kotlinlockin.common.data.getRecompositionExample
 import com.example.kotlinlockin.common.data.getStateHoistingExamples
 import com.example.kotlinlockin.common.data.getStylingTextExamples
@@ -136,6 +139,11 @@ fun NavigationDrawer() {
             selectedIcon = Icons.Filled.KeyboardArrowRight,
             unselectedIcon = Icons.Filled.KeyboardArrowRight
         ),
+        NavigationItems(
+            title = "17. Different types of onclick intents",
+            selectedIcon = Icons.Filled.KeyboardArrowRight,
+            unselectedIcon = Icons.Filled.KeyboardArrowRight
+        ),
     )
 
     var selectedItemIndex by rememberSaveable { mutableStateOf(0) }
@@ -196,6 +204,7 @@ fun NavigationDrawer() {
                     .padding(it),
                 horizontalAlignment = Alignment.Start
             ) {
+                val context: Context = LocalContext.current;
                 when (selectedItemIndex) {
                     0 -> Text("Must know keywords in kotlin")
                     1 -> ComposeMustKnow()
@@ -213,6 +222,7 @@ fun NavigationDrawer() {
                     13 -> TutorialScreen(exampleList = getButtonClicksExamples())
                     14 -> TutorialScreen(exampleList = getIconsAndImagesExamples())
                     15 -> TutorialScreen(exampleList = getCardSurfaceLayoutExamples())
+                    16 -> TutorialScreen(exampleList = getOnClickIntentExamples(context))
                 }
             }
         }

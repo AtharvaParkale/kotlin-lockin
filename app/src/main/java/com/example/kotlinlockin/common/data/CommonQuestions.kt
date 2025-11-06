@@ -110,7 +110,25 @@ fun getAllCommonQuestions(): List<CommonQuestionsModel> {
             youtubeVideoUrl = "",
             youtubeThumbnailUrl = "",
             articleUrl = ""
-        )
+        ),
+        CommonQuestionsModel(
+            title = "Different activities and their relation in android?",
+            youtubeVideoUrl = "",
+            youtubeThumbnailUrl = "",
+            articleUrl = ""
+        ),
+        CommonQuestionsModel(
+            title = "Lifecycle of android app",
+            youtubeVideoUrl = "",
+            youtubeThumbnailUrl = "",
+            articleUrl = ""
+        ),
+        CommonQuestionsModel(
+            title = "Single top, Top types of activities",
+            youtubeVideoUrl = "",
+            youtubeThumbnailUrl = "",
+            articleUrl = ""
+        ),
 
     )
 }
