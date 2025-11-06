@@ -35,6 +35,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.kotlinlockin.common.composables.TutorialScreen
 import com.example.kotlinlockin.common.data.getButtonClicksExamples
+import com.example.kotlinlockin.common.data.getCardSurfaceLayoutExamples
 import com.example.kotlinlockin.common.data.getCollectAsStateExamples
 import com.example.kotlinlockin.common.data.getIconsAndImagesExamples
 import com.example.kotlinlockin.common.data.getMutableStateExamples
@@ -130,6 +131,11 @@ fun NavigationDrawer() {
             selectedIcon = Icons.Filled.KeyboardArrowRight,
             unselectedIcon = Icons.Filled.KeyboardArrowRight
         ),
+        NavigationItems(
+            title = "16. Cards/ Surface/ Layout",
+            selectedIcon = Icons.Filled.KeyboardArrowRight,
+            unselectedIcon = Icons.Filled.KeyboardArrowRight
+        ),
     )
 
     var selectedItemIndex by rememberSaveable { mutableStateOf(0) }
@@ -206,6 +212,7 @@ fun NavigationDrawer() {
                     12 -> TutorialScreen(exampleList = getStylingTextExamples())
                     13 -> TutorialScreen(exampleList = getButtonClicksExamples())
                     14 -> TutorialScreen(exampleList = getIconsAndImagesExamples())
+                    15 -> TutorialScreen(exampleList = getCardSurfaceLayoutExamples())
                 }
             }
         }
