@@ -1,7 +1,12 @@
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -31,6 +36,7 @@ import androidx.compose.ui.unit.dp
 import com.example.kotlinlockin.common.composables.TutorialScreen
 import com.example.kotlinlockin.common.data.getButtonClicksExamples
 import com.example.kotlinlockin.common.data.getCollectAsStateExamples
+import com.example.kotlinlockin.common.data.getIconsAndImagesExamples
 import com.example.kotlinlockin.common.data.getMutableStateExamples
 import com.example.kotlinlockin.common.data.getRecompositionExample
 import com.example.kotlinlockin.common.data.getStateHoistingExamples
@@ -50,72 +56,77 @@ import kotlinx.coroutines.launch
 fun NavigationDrawer() {
     val items = listOf(
         NavigationItems(
-            title = "Important Keywords",
+            title = "1. Important Keywords",
             selectedIcon = Icons.Filled.KeyboardArrowRight,
             unselectedIcon = Icons.Filled.KeyboardArrowRight
         ),
         NavigationItems(
-            title = "Compose must know",
+            title = "2. Compose must know",
             selectedIcon = Icons.Filled.KeyboardArrowRight,
             unselectedIcon = Icons.Filled.KeyboardArrowRight
         ),
         NavigationItems(
-            title = "Layouts",
+            title = "3. Layouts",
             selectedIcon = Icons.Filled.KeyboardArrowRight,
             unselectedIcon = Icons.Filled.KeyboardArrowRight
         ),
         NavigationItems(
-            title = "Modifiers",
+            title = "4. Modifiers",
             selectedIcon = Icons.Filled.KeyboardArrowRight,
             unselectedIcon = Icons.Filled.KeyboardArrowRight
         ),
         NavigationItems(
-            title = "Constrained Layout",
+            title = "5. Constrained Layout",
             selectedIcon = Icons.Filled.KeyboardArrowRight,
             unselectedIcon = Icons.Filled.KeyboardArrowRight
         ),
         NavigationItems(
-            title = "Intrinsic measurements",
+            title = "6. Intrinsic measurements",
             selectedIcon = Icons.Filled.KeyboardArrowRight,
             unselectedIcon = Icons.Filled.KeyboardArrowRight
         ),
         NavigationItems(
-            title = "Recomposition",
+            title = "7. Recomposition",
             selectedIcon = Icons.Filled.KeyboardArrowRight,
             unselectedIcon = Icons.Filled.KeyboardArrowRight
         ),
         NavigationItems(
-            title = "Mutable state",
+            title = "8. Mutable state",
             selectedIcon = Icons.Filled.KeyboardArrowRight,
             unselectedIcon = Icons.Filled.KeyboardArrowRight
         ),
         NavigationItems(
-            title = "State Hoisting",
+            title = "9. State Hoisting",
             selectedIcon = Icons.Filled.KeyboardArrowRight,
             unselectedIcon = Icons.Filled.KeyboardArrowRight
         ),
         NavigationItems(
-            title = "Compose ViewModel",
+            title = "10. Compose ViewModel",
             selectedIcon = Icons.Filled.KeyboardArrowRight,
             unselectedIcon = Icons.Filled.KeyboardArrowRight
         ),
         NavigationItems(
-            title = "Observing Live data",
+            title = "11. Observing Live data",
             selectedIcon = Icons.Filled.KeyboardArrowRight,
             unselectedIcon = Icons.Filled.KeyboardArrowRight
         ),
         NavigationItems(
-            title = "Collect as state",
+            title = "12. Collect as state",
             selectedIcon = Icons.Filled.KeyboardArrowRight,
             unselectedIcon = Icons.Filled.KeyboardArrowRight
         ),
         NavigationItems(
-            title = "Styling text",
+            title = "13. Styling text",
             selectedIcon = Icons.Filled.KeyboardArrowRight,
             unselectedIcon = Icons.Filled.KeyboardArrowRight
         ),
         NavigationItems(
-            title = "Buttons and clickable components",
+            title = "14. Buttons and clickable components",
+            selectedIcon = Icons.Filled.KeyboardArrowRight,
+            unselectedIcon = Icons.Filled.KeyboardArrowRight
+        ),
+        NavigationItems(
+            title = "15. Icons and Images",
             selectedIcon = Icons.Filled.KeyboardArrowRight,
             unselectedIcon = Icons.Filled.KeyboardArrowRight
         ),
@@ -126,28 +137,39 @@ fun NavigationDrawer() {
     val scope = rememberCoroutineScope()
 
     ModalNavigationDrawer(
-        drawerState = drawerState, drawerContent = {
+        drawerState = drawerState,
+        gesturesEnabled = true,
+        drawerContent = {
             ModalDrawerSheet {
                 Spacer(modifier = Modifier.height(16.dp))
-                items.forEachIndexed { index, item ->
-                    NavigationDrawerItem(
-                        label = { Text(text = item.title) },
-                        selected = index == selectedItemIndex,
-                        onClick = {
-                            selectedItemIndex = index
-                            scope.launch { drawerState.close() }
-                        },
-                        icon = {
-                            Icon(
-                                imageVector = if (index == selectedItemIndex) item.selectedIcon else item.unselectedIcon,
-                                contentDescription = item.title
-                            )
-                        },
-                        modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding)
-                    )
+
+                LazyColumn(
+                    modifier = Modifier.fillMaxHeight(),
+                    verticalArrangement = Arrangement.Top
+                ) {
+                    itemsIndexed(items) { index, item ->
+                        NavigationDrawerItem(
+                            label = { Text(text = item.title) },
+                            selected = index == selectedItemIndex,
+                            onClick = {
+                                selectedItemIndex = index
+                                scope.launch { drawerState.close() }
+                            },
+                            icon = {
+                                Icon(
+                                    imageVector = if (index == selectedItemIndex)
+                                        item.selectedIcon else item.unselectedIcon,
+                                    contentDescription = item.title
+                                )
+                            },
+                            modifier = Modifier
+                                .padding(NavigationDrawerItemDefaults.ItemPadding)
+                                .fillMaxWidth()
+                        )
+                    }
                 }
             }
-        }, gesturesEnabled = true
+        }
     ) {
         Scaffold(
             topBar = {
@@ -169,10 +191,7 @@ fun NavigationDrawer() {
                 horizontalAlignment = Alignment.Start
             ) {
                 when (selectedItemIndex) {
-                    0 -> {
-                        Text("Must know keywords in kotlin")
-                    }
-
+                    0 -> Text("Must know keywords in kotlin")
                     1 -> ComposeMustKnow()
                     2 -> KotlinLayOutScreen()
                     3 -> ModifiersTutorial()
@@ -186,7 +205,7 @@ fun NavigationDrawer() {
                     11 -> TutorialScreen(exampleList = getCollectAsStateExamples())
                     12 -> TutorialScreen(exampleList = getStylingTextExamples())
                     13 -> TutorialScreen(exampleList = getButtonClicksExamples())
-
+                    14 -> TutorialScreen(exampleList = getIconsAndImagesExamples())
                 }
             }
         }

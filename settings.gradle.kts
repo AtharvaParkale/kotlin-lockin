@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Kotlin LockIn"
+rootProject.name = "Jetpack Compose Mastery"
 include(":app")
