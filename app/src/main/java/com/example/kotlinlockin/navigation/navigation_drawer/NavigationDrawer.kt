@@ -28,19 +28,20 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.example.kotlinlockin.common.composables.TutorialScreen
+import com.example.kotlinlockin.common.data.getButtonClicksExamples
+import com.example.kotlinlockin.common.data.getCollectAsStateExamples
+import com.example.kotlinlockin.common.data.getMutableStateExamples
+import com.example.kotlinlockin.common.data.getRecompositionExample
+import com.example.kotlinlockin.common.data.getStateHoistingExamples
+import com.example.kotlinlockin.common.data.getStylingTextExamples
 import com.example.kotlinlockin.navigation.navigation_drawer.NavigationItems
-import com.example.kotlinlockin.presentation.screens.CollectAsStateScreen
 import com.example.kotlinlockin.presentation.screens.ComposeMustKnow
 import com.example.kotlinlockin.presentation.screens.ConstrainedLayoutComposable
 import com.example.kotlinlockin.presentation.screens.IntrinsicMeasurements
 import com.example.kotlinlockin.presentation.screens.KotlinLayOutScreen
 import com.example.kotlinlockin.presentation.screens.ModifiersTutorial
-import com.example.kotlinlockin.presentation.screens.MutableStateTutorial
-import com.example.kotlinlockin.presentation.screens.RecompositionTutorial
-import com.example.kotlinlockin.presentation.screens.StateHoistingTutorial
-import com.example.kotlinlockin.presentation.screens.TextStyleTutorial
 import com.example.kotlinlockin.presentation.screens.live_data.TimerScreen
-import com.example.kotlinlockin.presentation.screens.live_data.TimerViewModel
 import com.example.kotlinlockin.presentation.screens.view_model.presentation.ui.PostScreenInitialization
 import kotlinx.coroutines.launch
 
@@ -177,16 +178,14 @@ fun NavigationDrawer() {
                     3 -> ModifiersTutorial()
                     4 -> ConstrainedLayoutComposable()
                     5 -> IntrinsicMeasurements()
-                    6 -> RecompositionTutorial()
-                    7 -> MutableStateTutorial()
-                    8 -> StateHoistingTutorial()
+                    6 -> TutorialScreen(exampleList = getRecompositionExample())
+                    7 -> TutorialScreen(exampleList = getMutableStateExamples())
+                    8 -> TutorialScreen(exampleList = getStateHoistingExamples())
                     9 -> PostScreenInitialization()
                     10 -> TimerScreen()
-                    11 -> CollectAsStateScreen()
-                    12 -> TextStyleTutorial()
-                    13 -> {
-                        Text("Clickable buttons")
-                    }
+                    11 -> TutorialScreen(exampleList = getCollectAsStateExamples())
+                    12 -> TutorialScreen(exampleList = getStylingTextExamples())
+                    13 -> TutorialScreen(exampleList = getButtonClicksExamples())
 
                 }
             }
