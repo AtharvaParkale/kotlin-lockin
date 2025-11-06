@@ -58,6 +58,12 @@ dependencies {
     implementation(libs.retrofit.gson.convertor)
     implementation(libs.androidx.compose.runtime.livedata)
 
+    // Compose coil
+    implementation(libs.coil.compose)
+
+    // Material Icons
+    implementation(libs.material.icons.extended)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
