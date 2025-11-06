@@ -68,8 +68,7 @@ fun CommonQuestionsCard(item: CommonQuestionsModel) {
                         val intent = Intent(Intent.ACTION_VIEW, item.youtubeVideoUrl.toUri())
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                         context.startActivity(intent)
-                    },
-                contentAlignment = Alignment.Center
+                    }, contentAlignment = Alignment.Center
             ) {
                 AsyncImage(
                     model = item.youtubeThumbnailUrl,
@@ -105,8 +104,7 @@ fun CommonQuestionsCard(item: CommonQuestionsModel) {
                     val intent = Intent(Intent.ACTION_VIEW, Uri.parse(item.articleUrl))
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                     context.startActivity(intent)
-                }
-            )
+                })
         }
     }
 }
