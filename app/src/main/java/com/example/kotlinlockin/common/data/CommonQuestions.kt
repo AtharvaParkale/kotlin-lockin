@@ -129,6 +129,11 @@ fun getAllCommonQuestions(): List<CommonQuestionsModel> {
             youtubeThumbnailUrl = "",
             articleUrl = ""
         ),
-
+        CommonQuestionsModel(
+            title = "What is the difference between rememberSavable(), rememberDrawerState(), rememberCoroutineScope()",
+            youtubeVideoUrl = "",
+            youtubeThumbnailUrl = "",
+            articleUrl = ""
+        ),
     )
 }

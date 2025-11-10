@@ -39,6 +39,7 @@ import com.example.kotlinlockin.common.composables.TutorialScreen
 import com.example.kotlinlockin.common.data.getButtonClicksExamples
 import com.example.kotlinlockin.common.data.getCardSurfaceLayoutExamples
 import com.example.kotlinlockin.common.data.getCollectAsStateExamples
+import com.example.kotlinlockin.common.data.getFormFieldExamples
 import com.example.kotlinlockin.common.data.getIconsAndImagesExamples
 import com.example.kotlinlockin.common.data.getMutableStateExamples
 import com.example.kotlinlockin.common.data.getOnClickIntentExamples
@@ -144,6 +145,11 @@ fun NavigationDrawer() {
             selectedIcon = Icons.Filled.KeyboardArrowRight,
             unselectedIcon = Icons.Filled.KeyboardArrowRight
         ),
+        NavigationItems(
+            title = "18. Form field, Text fields",
+            selectedIcon = Icons.Filled.KeyboardArrowRight,
+            unselectedIcon = Icons.Filled.KeyboardArrowRight
+        ),
     )
 
     var selectedItemIndex by rememberSaveable { mutableStateOf(0) }
@@ -223,6 +229,7 @@ fun NavigationDrawer() {
                     14 -> TutorialScreen(exampleList = getIconsAndImagesExamples())
                     15 -> TutorialScreen(exampleList = getCardSurfaceLayoutExamples())
                     16 -> TutorialScreen(exampleList = getOnClickIntentExamples(context))
+                    17 -> TutorialScreen(exampleList = getFormFieldExamples())
                 }
             }
         }
