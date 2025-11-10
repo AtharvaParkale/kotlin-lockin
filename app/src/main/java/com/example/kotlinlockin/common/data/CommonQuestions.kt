@@ -135,5 +135,11 @@ fun getAllCommonQuestions(): List<CommonQuestionsModel> {
             youtubeThumbnailUrl = "",
             articleUrl = ""
         ),
+        CommonQuestionsModel(
+            title = "How to push notifications work in android and in IOS?",
+            youtubeVideoUrl = "",
+            youtubeThumbnailUrl = "",
+            articleUrl = ""
+        ),
     )
 }
