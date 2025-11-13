@@ -17,6 +17,7 @@ import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalDrawerSheet
 import androidx.compose.material3.ModalNavigationDrawer
 import androidx.compose.material3.NavigationDrawerItem
@@ -24,6 +25,7 @@ import androidx.compose.material3.NavigationDrawerItemDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarColors
 import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -34,6 +36,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.kotlinlockin.common.composables.TutorialScreen
 import com.example.kotlinlockin.common.data.getButtonClicksExamples
@@ -48,6 +52,8 @@ import com.example.kotlinlockin.common.data.getOnClickIntentExamples
 import com.example.kotlinlockin.common.data.getRecompositionExample
 import com.example.kotlinlockin.common.data.getStateHoistingExamples
 import com.example.kotlinlockin.common.data.getStylingTextExamples
+import com.example.kotlinlockin.common.data.getThemeExamples
+import com.example.kotlinlockin.common.data.getThemeExamplesPartTwo
 import com.example.kotlinlockin.navigation.navigation_drawer.NavigationItems
 import com.example.kotlinlockin.presentation.screens.ComposeMustKnow
 import com.example.kotlinlockin.presentation.screens.ConstrainedLayoutComposable
@@ -162,6 +168,16 @@ fun NavigationDrawer() {
             selectedIcon = Icons.Filled.KeyboardArrowRight,
             unselectedIcon = Icons.Filled.KeyboardArrowRight
         ),
+        NavigationItems(
+            title = "21. Theme part 1",
+            selectedIcon = Icons.Filled.KeyboardArrowRight,
+            unselectedIcon = Icons.Filled.KeyboardArrowRight
+        ),
+        NavigationItems(
+            title = "22. Theme part 2",
+            selectedIcon = Icons.Filled.KeyboardArrowRight,
+            unselectedIcon = Icons.Filled.KeyboardArrowRight
+        ),
     )
 
     var selectedItemIndex by rememberSaveable { mutableStateOf(0) }
@@ -170,7 +186,9 @@ fun NavigationDrawer() {
 
     ModalNavigationDrawer(
         drawerState = drawerState, gesturesEnabled = true, drawerContent = {
-            ModalDrawerSheet {
+            ModalDrawerSheet(
+                drawerContainerColor = MaterialTheme.colorScheme.background,
+            ) {
                 Spacer(modifier = Modifier.height(16.dp))
 
                 LazyColumn(
@@ -178,7 +196,13 @@ fun NavigationDrawer() {
                 ) {
                     itemsIndexed(items) { index, item ->
                         NavigationDrawerItem(
-                            label = { Text(text = item.title) },
+                            label = {
+                                Text(
+                                    text = item.title, style = TextStyle(
+                                        fontWeight = FontWeight.W600
+                                    )
+                                )
+                            },
                             selected = index == selectedItemIndex,
                             onClick = {
                                 selectedItemIndex = index
@@ -192,7 +216,13 @@ fun NavigationDrawer() {
                             },
                             modifier = Modifier
                                 .padding(NavigationDrawerItemDefaults.ItemPadding)
-                                .fillMaxWidth()
+                                .fillMaxWidth(),
+                            colors = NavigationDrawerItemDefaults.colors(
+                                selectedContainerColor = MaterialTheme.colorScheme.onBackground,
+                                selectedTextColor = MaterialTheme.colorScheme.background,
+                                selectedIconColor = MaterialTheme.colorScheme.background
+                            )
+
                         )
                     }
                 }
@@ -200,15 +230,26 @@ fun NavigationDrawer() {
         }) {
         Scaffold(
             topBar = {
-                TopAppBar(title = { Text(text = "Compose") }, navigationIcon = {
-                    IconButton(onClick = {
-                        scope.launch {
-                            drawerState.apply { if (isClosed) open() else close() }
+                TopAppBar(
+                    title = { Text(text = "Compose") },
+                    navigationIcon = {
+                        IconButton(onClick = {
+                            scope.launch {
+                                drawerState.apply { if (isClosed) open() else close() }
+                            }
+                        }) {
+                            Icon(imageVector = Icons.Default.Menu, contentDescription = "Menu")
                         }
-                    }) {
-                        Icon(imageVector = Icons.Default.Menu, contentDescription = "Menu")
-                    }
-                })
+                    },
+                    colors = TopAppBarColors(
+                        containerColor = MaterialTheme.colorScheme.background,
+                        scrolledContainerColor = MaterialTheme.colorScheme.background,
+                        navigationIconContentColor = MaterialTheme.colorScheme.onBackground,
+                        titleContentColor = MaterialTheme.colorScheme.onBackground,
+                        actionIconContentColor = MaterialTheme.colorScheme.onBackground,
+                        subtitleContentColor = MaterialTheme.colorScheme.onBackground
+                    )
+                )
             }) {
 
             Column(
@@ -239,6 +280,8 @@ fun NavigationDrawer() {
                     17 -> TutorialScreen(exampleList = getFormFieldExamples())
                     18 -> TutorialScreen(exampleList = getMaterialThemeExamples())
                     19 -> TutorialScreen(exampleList = getCustomisingColorExamples())
+                    20 -> TutorialScreen(exampleList = getThemeExamples())
+                    21 -> TutorialScreen(exampleList = getThemeExamplesPartTwo())
                 }
             }
         }

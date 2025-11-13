@@ -32,7 +32,8 @@ fun getStylingTextExamples(): List<Example> = listOf(
                 fontWeight = FontWeight.Bold,
                 fontStyle = FontStyle.Italic
             )
-        }),
+        },
+    ),
 
     Example(
         title = "\uD83E\uDDE9 2. Using TextStyle for cleaner code",
@@ -47,7 +48,8 @@ fun getStylingTextExamples(): List<Example> = listOf(
                     letterSpacing = 1.sp
                 )
             )
-        }),
+        },
+    ),
 
     Example(
         title = "\uD83E\uDDE9 3. Using Material Theme typography",
@@ -64,7 +66,6 @@ fun getStylingTextExamples(): List<Example> = listOf(
                     )
                 )
             }
-
         },
     ),
 
@@ -84,5 +85,6 @@ fun getStylingTextExamples(): List<Example> = listOf(
                     letterSpacing = 1.sp
                 )
             )
-        })
+        },
+    ),
 )
