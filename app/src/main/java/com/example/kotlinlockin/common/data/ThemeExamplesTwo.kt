@@ -46,19 +46,4 @@ fun getThemeExamplesPartTwo(): List<Example> = listOf(
     ) {
 
     },
-    Example(
-        title = "", description = "", code = ""
-    ) {
-
-    },
-    Example(
-        title = "", description = "", code = ""
-    ) {
-
-    },
-    Example(
-        title = "", description = "", code = ""
-    ) {
-
-    },
 )

@@ -20,6 +20,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -44,11 +45,14 @@ fun TopicCardWithTitleCodeDescription(
         ) {
 
             Text(
-                text = title, style = TextStyle(
+                text = title,
+                style = TextStyle(
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Bold,
                     color = MaterialTheme.colorScheme.background
-                ), maxLines = 2, overflow = TextOverflow.Ellipsis
+                ),
+                maxLines = 2,
+                overflow = TextOverflow.Ellipsis,
             )
 
             Divider(color = Color(0xFFDDDDDD))
@@ -64,12 +68,15 @@ fun TopicCardWithTitleCodeDescription(
                         .background(MaterialTheme.colorScheme.background)
                 ) {
                     Text(
-                        text = code, style = TextStyle(
+                        text = code,
+                        style = TextStyle(
                             fontSize = 13.sp,
                             fontFamily = MaterialTheme.typography.bodySmall.fontFamily,
                             lineHeight = 18.sp,
                             color = MaterialTheme.colorScheme.onBackground
-                        ), modifier = Modifier
+                        ),
+                        textAlign = TextAlign.Unspecified,
+                        modifier = Modifier
                             .clip(RoundedCornerShape(10.dp))
                             .padding(10.dp)
                     )

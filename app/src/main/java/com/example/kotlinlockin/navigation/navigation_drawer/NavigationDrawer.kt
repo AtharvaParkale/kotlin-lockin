@@ -44,6 +44,7 @@ import com.example.kotlinlockin.common.data.getButtonClicksExamples
 import com.example.kotlinlockin.common.data.getCardSurfaceLayoutExamples
 import com.example.kotlinlockin.common.data.getCollectAsStateExamples
 import com.example.kotlinlockin.common.data.getCustomisingColorExamples
+import com.example.kotlinlockin.common.data.getDynamicThemingExamples
 import com.example.kotlinlockin.common.data.getFormFieldExamples
 import com.example.kotlinlockin.common.data.getIconsAndImagesExamples
 import com.example.kotlinlockin.common.data.getMaterialThemeExamples
@@ -178,6 +179,11 @@ fun NavigationDrawer() {
             selectedIcon = Icons.Filled.KeyboardArrowRight,
             unselectedIcon = Icons.Filled.KeyboardArrowRight
         ),
+        NavigationItems(
+            title = "23. Dynamic Theme",
+            selectedIcon = Icons.Filled.KeyboardArrowRight,
+            unselectedIcon = Icons.Filled.KeyboardArrowRight
+        ),
     )
 
     var selectedItemIndex by rememberSaveable { mutableStateOf(0) }
@@ -282,6 +288,7 @@ fun NavigationDrawer() {
                     19 -> TutorialScreen(exampleList = getCustomisingColorExamples())
                     20 -> TutorialScreen(exampleList = getThemeExamples())
                     21 -> TutorialScreen(exampleList = getThemeExamplesPartTwo())
+                    22 -> TutorialScreen(exampleList = getDynamicThemingExamples())
                 }
             }
         }
