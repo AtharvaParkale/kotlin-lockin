@@ -37,23 +37,22 @@ fun TopicCardWithTitleCodeDescription(
             .padding(vertical = 8.dp),
         shape = RoundedCornerShape(16.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.onBackground)
     ) {
         Column(
             modifier = Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
 
-            // Title Section
             Text(
                 text = title, style = TextStyle(
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colorScheme.background
                 ), maxLines = 2, overflow = TextOverflow.Ellipsis
             )
 
             Divider(color = Color(0xFFDDDDDD))
 
-            // Code Section
             if (code.isNotEmpty()) {
                 Box(
                     modifier = Modifier
@@ -77,16 +76,16 @@ fun TopicCardWithTitleCodeDescription(
                 }
             }
 
-            // Description Section
             if (description.isNotEmpty()) {
                 Text(
                     text = description, style = TextStyle(
-                        fontSize = 15.sp, lineHeight = 20.sp
+                        fontSize = 15.sp,
+                        lineHeight = 20.sp,
+                        color = MaterialTheme.colorScheme.background
                     )
                 )
             }
 
-            // Custom Composable Content (like demo widget)
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
