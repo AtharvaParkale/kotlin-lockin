@@ -48,10 +48,14 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.androidx.material3)
-    implementation(libs.navigation.compose) // Navigation
     implementation(libs.androidx.compose.foundation)
-    implementation(libs.constraintlayout.compose) // Constrained layout
     implementation(libs.androidx.compose.ui)
+
+    // Constrained layout
+    implementation(libs.constraintlayout.compose)
+
+    // Navigation
+    implementation(libs.navigation.compose)
 
     // Retrofit
     implementation(libs.retrofit.compose)

@@ -41,6 +41,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.kotlinlockin.common.composables.TutorialScreen
 import com.example.kotlinlockin.common.data.getAdvanceModifierExamples
+import com.example.kotlinlockin.common.data.getAppNavigationExamples
 import com.example.kotlinlockin.common.data.getButtonClicksExamples
 import com.example.kotlinlockin.common.data.getCardSurfaceLayoutExamples
 import com.example.kotlinlockin.common.data.getCollectAsStateExamples
@@ -51,6 +52,7 @@ import com.example.kotlinlockin.common.data.getFormFieldExamples
 import com.example.kotlinlockin.common.data.getIconsAndImagesExamples
 import com.example.kotlinlockin.common.data.getMaterialThemeExamples
 import com.example.kotlinlockin.common.data.getMutableStateExamples
+import com.example.kotlinlockin.common.data.getNavigationCompose
 import com.example.kotlinlockin.common.data.getOnClickIntentExamples
 import com.example.kotlinlockin.common.data.getRecompositionExample
 import com.example.kotlinlockin.common.data.getStateHoistingExamples
@@ -196,6 +198,16 @@ fun NavigationDrawer() {
             selectedIcon = Icons.Filled.KeyboardArrowRight,
             unselectedIcon = Icons.Filled.KeyboardArrowRight
         ),
+        NavigationItems(
+            title = "26. Adding navigation compose dependency",
+            selectedIcon = Icons.Filled.KeyboardArrowRight,
+            unselectedIcon = Icons.Filled.KeyboardArrowRight
+        ),
+        NavigationItems(
+            title = "27. NavHost and NavController examples",
+            selectedIcon = Icons.Filled.KeyboardArrowRight,
+            unselectedIcon = Icons.Filled.KeyboardArrowRight
+        ),
     )
 
     var selectedItemIndex by rememberSaveable { mutableStateOf(0) }
@@ -215,12 +227,12 @@ fun NavigationDrawer() {
                     itemsIndexed(items) { index, item ->
                         NavigationDrawerItem(
                             label = {
-                                Text(
-                                    text = item.title, style = TextStyle(
-                                        fontWeight = FontWeight.W600
-                                    )
+                            Text(
+                                text = item.title, style = TextStyle(
+                                    fontWeight = FontWeight.W600
                                 )
-                            },
+                            )
+                        },
                             selected = index == selectedItemIndex,
                             onClick = {
                                 selectedItemIndex = index
@@ -250,21 +262,21 @@ fun NavigationDrawer() {
             topBar = {
                 TopAppBar(
                     title = { Text(text = "Compose") }, navigationIcon = {
-                        IconButton(onClick = {
-                            scope.launch {
-                                drawerState.apply { if (isClosed) open() else close() }
-                            }
-                        }) {
-                            Icon(imageVector = Icons.Default.Menu, contentDescription = "Menu")
+                    IconButton(onClick = {
+                        scope.launch {
+                            drawerState.apply { if (isClosed) open() else close() }
                         }
-                    }, colors = TopAppBarColors(
-                        containerColor = MaterialTheme.colorScheme.background,
-                        scrolledContainerColor = MaterialTheme.colorScheme.background,
-                        navigationIconContentColor = MaterialTheme.colorScheme.onBackground,
-                        titleContentColor = MaterialTheme.colorScheme.onBackground,
-                        actionIconContentColor = MaterialTheme.colorScheme.onBackground,
-                        subtitleContentColor = MaterialTheme.colorScheme.onBackground
-                    )
+                    }) {
+                        Icon(imageVector = Icons.Default.Menu, contentDescription = "Menu")
+                    }
+                }, colors = TopAppBarColors(
+                    containerColor = MaterialTheme.colorScheme.background,
+                    scrolledContainerColor = MaterialTheme.colorScheme.background,
+                    navigationIconContentColor = MaterialTheme.colorScheme.onBackground,
+                    titleContentColor = MaterialTheme.colorScheme.onBackground,
+                    actionIconContentColor = MaterialTheme.colorScheme.onBackground,
+                    subtitleContentColor = MaterialTheme.colorScheme.onBackground
+                )
                 )
             }) {
 
@@ -301,6 +313,8 @@ fun NavigationDrawer() {
                     22 -> TutorialScreen(exampleList = getDynamicThemingExamples())
                     23 -> TutorialScreen(exampleList = getDesignSystemExamples())
                     24 -> TutorialScreen(exampleList = getAdvanceModifierExamples())
+                    25 -> TutorialScreen(exampleList = getNavigationCompose())
+                    26 -> TutorialScreen(exampleList = getAppNavigationExamples())
                 }
             }
         }
