@@ -40,10 +40,12 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.kotlinlockin.common.composables.TutorialScreen
+import com.example.kotlinlockin.common.data.getAdvanceModifierExamples
 import com.example.kotlinlockin.common.data.getButtonClicksExamples
 import com.example.kotlinlockin.common.data.getCardSurfaceLayoutExamples
 import com.example.kotlinlockin.common.data.getCollectAsStateExamples
 import com.example.kotlinlockin.common.data.getCustomisingColorExamples
+import com.example.kotlinlockin.common.data.getDesignSystemExamples
 import com.example.kotlinlockin.common.data.getDynamicThemingExamples
 import com.example.kotlinlockin.common.data.getFormFieldExamples
 import com.example.kotlinlockin.common.data.getIconsAndImagesExamples
@@ -189,6 +191,11 @@ fun NavigationDrawer() {
             selectedIcon = Icons.Filled.KeyboardArrowRight,
             unselectedIcon = Icons.Filled.KeyboardArrowRight
         ),
+        NavigationItems(
+            title = "25. Advance modifier usage : chaining, clip, background, draw behind",
+            selectedIcon = Icons.Filled.KeyboardArrowRight,
+            unselectedIcon = Icons.Filled.KeyboardArrowRight
+        ),
     )
 
     var selectedItemIndex by rememberSaveable { mutableStateOf(0) }
@@ -242,8 +249,7 @@ fun NavigationDrawer() {
         Scaffold(
             topBar = {
                 TopAppBar(
-                    title = { Text(text = "Compose") },
-                    navigationIcon = {
+                    title = { Text(text = "Compose") }, navigationIcon = {
                         IconButton(onClick = {
                             scope.launch {
                                 drawerState.apply { if (isClosed) open() else close() }
@@ -251,8 +257,7 @@ fun NavigationDrawer() {
                         }) {
                             Icon(imageVector = Icons.Default.Menu, contentDescription = "Menu")
                         }
-                    },
-                    colors = TopAppBarColors(
+                    }, colors = TopAppBarColors(
                         containerColor = MaterialTheme.colorScheme.background,
                         scrolledContainerColor = MaterialTheme.colorScheme.background,
                         navigationIconContentColor = MaterialTheme.colorScheme.onBackground,
@@ -294,7 +299,8 @@ fun NavigationDrawer() {
                     20 -> TutorialScreen(exampleList = getThemeExamples())
                     21 -> TutorialScreen(exampleList = getThemeExamplesPartTwo())
                     22 -> TutorialScreen(exampleList = getDynamicThemingExamples())
-                    23 -> TutorialScreen(exampleList = getDynamicThemingExamples())
+                    23 -> TutorialScreen(exampleList = getDesignSystemExamples())
+                    24 -> TutorialScreen(exampleList = getAdvanceModifierExamples())
                 }
             }
         }

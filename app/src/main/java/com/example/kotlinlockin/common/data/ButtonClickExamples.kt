@@ -101,10 +101,11 @@ fun getButtonClicksExamples(): List<Example> = listOf(
         description = "✅ Explanation:\n" + "\t•\tThe whole Row acts as one clickable area.\n" + "\t•\tYou can combine multiple components (icon + text) in a single tap target.",
         code = "    Row(\n" + "        modifier = Modifier\n" + "            .fillMaxWidth()\n" + "            .clickable { println(\"Row clicked!\") }\n" + "            .padding(16.dp),\n" + "        verticalAlignment = Alignment.CenterVertically\n" + "    ) {\n" + "        Icon(\n" + "            imageVector = Icons.Filled.PlayArrow,\n" + "            contentDescription = \"Play\"\n" + "        )\n" + "        Spacer(Modifier.width(8.dp))\n" + "        Text(\"Play Video\")\n" + "    }",
     ) {
-        Row(modifier = Modifier
-            .fillMaxWidth()
-            .clickable { println("Row clicked!") }
-            .padding(16.dp),
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .clickable { println("Row clicked!") }
+                .padding(16.dp),
             verticalAlignment = Alignment.CenterVertically) {
             Icon(
                 imageVector = Icons.Filled.PlayArrow, contentDescription = "Play"
@@ -134,6 +135,4 @@ fun getButtonClicksExamples(): List<Example> = listOf(
     ) {
 
     }
-
-
 )
