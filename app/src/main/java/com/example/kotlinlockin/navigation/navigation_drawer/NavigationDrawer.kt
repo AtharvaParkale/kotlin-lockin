@@ -184,6 +184,11 @@ fun NavigationDrawer() {
             selectedIcon = Icons.Filled.KeyboardArrowRight,
             unselectedIcon = Icons.Filled.KeyboardArrowRight
         ),
+        NavigationItems(
+            title = "24. Creating a reusable design system",
+            selectedIcon = Icons.Filled.KeyboardArrowRight,
+            unselectedIcon = Icons.Filled.KeyboardArrowRight
+        ),
     )
 
     var selectedItemIndex by rememberSaveable { mutableStateOf(0) }
@@ -289,6 +294,7 @@ fun NavigationDrawer() {
                     20 -> TutorialScreen(exampleList = getThemeExamples())
                     21 -> TutorialScreen(exampleList = getThemeExamplesPartTwo())
                     22 -> TutorialScreen(exampleList = getDynamicThemingExamples())
+                    23 -> TutorialScreen(exampleList = getDynamicThemingExamples())
                 }
             }
         }
